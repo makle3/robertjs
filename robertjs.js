@@ -1,5 +1,5 @@
 
-
+require('dotenv').config();
 const {Client, MessageEmbed} = require('discord.js');
 const client = new Client();
 //hotload = require('hotload');
@@ -20,7 +20,8 @@ client.on('message', msg => {
   }
 });
 
-client.login('NDU1MzUyMTk3NzgyNDM3OTE5.XrcLGw.qKkLQGPGagZhWwL9TGTM5DChraY');
+var myAPIKey = process.env.MYAPIKEY;
+client.login(myAPIKey);
 
 client.on('message', msg => {
  if(msg.content === 'ping2'){
@@ -29,7 +30,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
- if(msg.content.toLowerCase() === 'leverpostej'){
+ if(msg.content.toLowerCase().includes('leverpostej')){
   msg.channel.send('https://imgur.com/a/OsjKCzu');
  }
 });
